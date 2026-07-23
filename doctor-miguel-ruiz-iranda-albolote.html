@@ -7,7 +7,7 @@
 <meta name="description" content="Doctor Miguel Ruiz Iranda: Odontología general y estética dental en Albolote. Pide tu cita." />
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-<link href="https://fonts.googleapis.com/css2?family=Instrument+Sans:ital,wght@0,400;0,500;0,600;0,700;1,500&family=Instrument+Serif:ital@0;1&display=swap" rel="stylesheet" />
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;1,500&family=Jost:wght@400;500;600;700&display=swap" rel="stylesheet" />
 <style>
   :root {
     --brand: #1D4ED8;
@@ -24,14 +24,16 @@
     --glass-strong: rgba(251, 249, 245, 0.08);
     --glass-border: rgba(251, 249, 245, 0.13);
     --on-deep-line: rgba(255, 255, 255, 0.18);
-    --radius-lg: 22px;
-    --radius: 14px;
+    --radius-lg: 18px;
+    --radius: 10px;
+    --font-display: 'Cormorant Garamond', serif;
+    --font-body: 'Jost', system-ui, sans-serif;
   }
   * { box-sizing: border-box; }
   html { scroll-behavior: smooth; }
   body {
     margin: 0;
-    font-family: 'Instrument Sans', system-ui, sans-serif;
+    font-family: var(--font-body);
     color: var(--text-on-dark);
     background: var(--void);
     line-height: 1.55;
@@ -44,15 +46,15 @@
     opacity: .05; mix-blend-mode: overlay;
     background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='120' height='120'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
   }
-  h1, h2 { font-family: 'Instrument Serif', serif; font-weight: 400; margin: 0; line-height: .98; letter-spacing: -0.01em; text-wrap: balance; color: var(--text-on-dark); }
-  h3 { font-family: 'Instrument Sans', sans-serif; font-weight: 600; margin: 0; letter-spacing: -0.01em; }
+  h1, h2 { font-family: var(--font-display); font-weight: 400; margin: 0; line-height: .98; letter-spacing: -0.01em; text-wrap: balance; color: var(--text-on-dark); }
+  h3 { font-family: var(--font-body); font-weight: 600; margin: 0; letter-spacing: -0.01em; }
   p { margin: 0; color: var(--muted-on-dark); }
   a { color: inherit; }
   em { font-style: italic; color: var(--brand-soft); }
   .container { max-width: 1180px; margin: 0 auto; padding: 0 1.5rem; }
   .eyebrow {
     display: inline-flex; align-items: center; gap: .55rem;
-    font-family: 'Instrument Sans', sans-serif;
+    font-family: var(--font-body);
     font-size: .76rem; font-weight: 600; letter-spacing: .1em; text-transform: uppercase;
     color: var(--muted-on-dark);
   }
@@ -60,7 +62,7 @@
 
   .btn {
     display: inline-flex; align-items: center; justify-content: center; gap: .5rem;
-    font-family: 'Instrument Sans', sans-serif;
+    font-family: var(--font-body);
     background: var(--paper); color: var(--ink); font-weight: 600; font-size: .93rem;
     padding: .85rem 1.65rem; border-radius: 10px; text-decoration: none;
     border: none; cursor: pointer;
@@ -89,7 +91,7 @@
     border-color: var(--glass-border);
   }
   .nav-inner { display: flex; align-items: center; justify-content: space-between; padding: 1.1rem 1.5rem; }
-  .logo { font-family: 'Instrument Serif', serif; font-size: 1.3rem; text-decoration: none; color: inherit; }
+  .logo { font-family: var(--font-display); font-size: 1.3rem; text-decoration: none; color: inherit; }
   .logo .dot { color: var(--brand); }
   nav.links { display: flex; gap: 2.25rem; list-style: none; margin: 0; padding: 0; }
   nav.links a { text-decoration: none; color: inherit; opacity: .78; font-weight: 500; font-size: .9rem; transition: opacity .2s ease; }
@@ -135,11 +137,17 @@
 
   .hero-hud {
     position: relative; z-index: 2; display: flex; align-items: center; gap: 1.75rem;
-    margin: 3.5rem auto 0; padding: 1rem 1.75rem; border-radius: 999px; width: fit-content;
+    margin: 3.5rem 0 0; padding: 1rem 1.75rem; border-radius: 999px; width: fit-content;
     background: rgba(251,249,245,.08); backdrop-filter: blur(18px);
     border: 1px solid rgba(251,249,245,.16);
   }
-  .hud-item strong { font-family: 'Instrument Serif', serif; font-size: 1.7rem; font-weight: 400; display: block; font-variant-numeric: tabular-nums; }
+  /* Hero layout variants (assigned per clinic so no two neighbours match) */
+  body.layout-center .hero-inner { text-align: center; }
+  body.layout-center .hero h1,
+  body.layout-center .hero p.lead { margin-left: auto; margin-right: auto; }
+  body.layout-center .hero-cta { justify-content: center; }
+  body.layout-center .hero-hud { margin-left: auto; margin-right: auto; }
+  .hud-item strong { font-family: var(--font-display); font-size: 1.7rem; font-weight: 400; display: block; font-variant-numeric: tabular-nums; }
   .hud-item span { font-size: .72rem; color: rgba(251,249,245,.6); }
   .hud-divider { width: 1px; height: 28px; background: rgba(251,249,245,.18); }
   .hud-chip { display: flex; align-items: center; gap: .55rem; font-size: .8rem; font-weight: 600; }
@@ -187,7 +195,7 @@
   .ticker { display: flex; }
   .ticker > div { flex: 1; padding: 2.5rem 1.5rem; text-align: center; position: relative; }
   .ticker > div + div::before { content: ''; position: absolute; left: 0; top: 25%; bottom: 25%; width: 1px; background: var(--glass-border); }
-  .ticker-num { font-family: 'Instrument Serif', serif; font-size: clamp(2.1rem, 4.5vw, 3rem); font-variant-numeric: tabular-nums; color: var(--text-on-dark); }
+  .ticker-num { font-family: var(--font-display); font-size: clamp(2.1rem, 4.5vw, 3rem); font-variant-numeric: tabular-nums; color: var(--text-on-dark); }
   .ticker-label { font-size: .85rem; color: var(--muted-on-dark); margin-top: .3rem; }
 
   /* Sections */
@@ -227,7 +235,7 @@
   }
   .svc-row:hover .svc-ic svg { transform: scale(1.12) rotate(-4deg); }
   .svc-body h3 {
-    font-family: 'Instrument Serif', serif; font-weight: 400;
+    font-family: var(--font-display); font-weight: 400;
     font-size: clamp(1.35rem, 2.5vw, 1.9rem); letter-spacing: -0.01em;
     display: flex; align-items: center; gap: .8rem; flex-wrap: wrap;
     transition: color .3s ease;
@@ -235,7 +243,7 @@
   .svc-row:hover .svc-body h3 { color: var(--brand-soft); }
   .svc-body p { font-size: .93rem; margin-top: .4rem; max-width: 56ch; }
   .svc-tag {
-    font-family: 'Instrument Sans', sans-serif; font-size: .64rem; font-weight: 600;
+    font-family: var(--font-body); font-size: .64rem; font-weight: 600;
     letter-spacing: .1em; text-transform: uppercase; color: var(--brand-soft);
     border: 1px solid color-mix(in srgb, var(--brand-soft) 40%, transparent);
     border-radius: 999px; padding: .28rem .7rem; white-space: nowrap;
@@ -252,7 +260,7 @@
   .marquee-track { display: inline-flex; white-space: nowrap; animation: marqueeMove 30s linear infinite; will-change: transform; }
   .marquee-chunk { display: inline-flex; align-items: center; }
   .marquee span.item {
-    font-family: 'Instrument Serif', serif; font-style: italic;
+    font-family: var(--font-display); font-style: italic;
     font-size: 1.6rem; color: var(--muted-on-dark); padding: 0 1.4rem;
   }
   .marquee span.sep { color: var(--brand-soft); font-size: .8rem; }
@@ -266,11 +274,11 @@
     background: radial-gradient(closest-side, color-mix(in srgb, var(--brand) 13%, transparent), transparent);
   }
   .quote-wrap { position: relative; max-width: 880px; margin: 0 auto; text-align: center; }
-  .quote-mark { display: block; font-family: 'Instrument Serif', serif; font-style: italic; font-size: 5rem; line-height: .6; color: var(--brand-soft); margin-bottom: 1.25rem; }
-  blockquote { margin: 0; font-family: 'Instrument Serif', serif; font-style: italic; font-size: clamp(1.6rem, 3.4vw, 2.5rem); line-height: 1.25; color: var(--text-on-dark); text-wrap: balance; }
+  .quote-mark { display: block; font-family: var(--font-display); font-style: italic; font-size: 5rem; line-height: .6; color: var(--brand-soft); margin-bottom: 1.25rem; }
+  blockquote { margin: 0; font-family: var(--font-display); font-style: italic; font-size: clamp(1.6rem, 3.4vw, 2.5rem); line-height: 1.25; color: var(--text-on-dark); text-wrap: balance; }
   .quote-source {
     margin-top: 2rem; display: inline-flex; align-items: center; gap: .9rem;
-    font-family: 'Instrument Sans', sans-serif; font-style: normal; font-size: .88rem; font-weight: 600; color: var(--muted-on-dark);
+    font-family: var(--font-body); font-style: normal; font-size: .88rem; font-weight: 600; color: var(--muted-on-dark);
   }
   .quote-source::before, .quote-source::after { content: ''; width: 26px; height: 1px; background: var(--glass-border); }
 
@@ -285,7 +293,7 @@
   .finale h2 { font-size: clamp(3rem, 8vw, 5.5rem); }
   .tel-giant {
     display: inline-block; margin-top: 1.9rem;
-    font-family: 'Instrument Serif', serif; font-variant-numeric: tabular-nums;
+    font-family: var(--font-display); font-variant-numeric: tabular-nums;
     font-size: clamp(1.9rem, 5.5vw, 3.8rem); line-height: 1.1;
     color: var(--brand-soft); text-decoration: none; position: relative; white-space: nowrap;
   }
@@ -333,7 +341,7 @@
   }
 </style>
 </head>
-<body>
+<body class="">
 
 <header class="nav" id="siteNav">
   <div class="nav-inner">
@@ -688,24 +696,29 @@
       'attribute vec3 aPos; uniform mat4 uMVP; void main() { gl_Position = uMVP * vec4(aPos, 1.0); }',
       'precision mediump float; uniform vec4 uLineColor; void main() { gl_FragColor = uLineColor; }'
     );
-    var PHI = (1 + Math.sqrt(5)) / 2;
-    var rawVerts = [
-      [-1,PHI,0],[1,PHI,0],[-1,-PHI,0],[1,-PHI,0],
-      [0,-1,PHI],[0,1,PHI],[0,-1,-PHI],[0,1,-PHI],
-      [PHI,0,-1],[PHI,0,1],[-PHI,0,-1],[-PHI,0,1]
-    ];
-    var verts = [];
-    rawVerts.forEach(function (v) {
-      var len = Math.sqrt(v[0]*v[0] + v[1]*v[1] + v[2]*v[2]);
-      verts.push(v[0]/len, v[1]/len, v[2]/len);
-    });
-    var edges = [
-      [0,1],[0,5],[0,7],[0,10],[0,11],[1,5],[1,7],[1,8],[1,9],
-      [2,3],[2,4],[2,6],[2,10],[2,11],[3,4],[3,6],[3,8],[3,9],
-      [4,5],[4,9],[4,11],[5,9],[5,11],[6,7],[6,8],[6,10],[7,8],[7,10],[8,9],[10,11]
-    ];
-    var edgeIndices = [];
-    edges.forEach(function (e) { edgeIndices.push(e[0], e[1]); });
+    // Distinct wireframe polyhedron per clinic (selected at build time).
+    function buildGeometry(kind) {
+      var P = (1 + Math.sqrt(5)) / 2;
+      var defs = {
+        ico: { v: [[-1,P,0],[1,P,0],[-1,-P,0],[1,-P,0],[0,-1,P],[0,1,P],[0,-1,-P],[0,1,-P],[P,0,-1],[P,0,1],[-P,0,-1],[-P,0,1]],
+          e: [[0,1],[0,5],[0,7],[0,10],[0,11],[1,5],[1,7],[1,8],[1,9],[2,3],[2,4],[2,6],[2,10],[2,11],[3,4],[3,6],[3,8],[3,9],[4,5],[4,9],[4,11],[5,9],[5,11],[6,7],[6,8],[6,10],[7,8],[7,10],[8,9],[10,11]] },
+        octa: { v: [[1,0,0],[-1,0,0],[0,1,0],[0,-1,0],[0,0,1],[0,0,-1]],
+          e: [[0,2],[0,3],[0,4],[0,5],[1,2],[1,3],[1,4],[1,5],[2,4],[2,5],[3,4],[3,5]] },
+        cube: { v: [[-1,-1,-1],[1,-1,-1],[1,1,-1],[-1,1,-1],[-1,-1,1],[1,-1,1],[1,1,1],[-1,1,1]],
+          e: [[0,1],[1,2],[2,3],[3,0],[4,5],[5,6],[6,7],[7,4],[0,4],[1,5],[2,6],[3,7]] },
+        tetra: { v: [[1,1,1],[1,-1,-1],[-1,1,-1],[-1,-1,1]],
+          e: [[0,1],[0,2],[0,3],[1,2],[1,3],[2,3]] }
+      };
+      var d = defs[kind] || defs.ico;
+      var vs = [];
+      d.v.forEach(function (v) { var l = Math.sqrt(v[0]*v[0]+v[1]*v[1]+v[2]*v[2]); vs.push(v[0]/l, v[1]/l, v[2]/l); });
+      var idx = [];
+      d.e.forEach(function (e) { idx.push(e[0], e[1]); });
+      return { verts: vs, edges: idx };
+    }
+    var geo = buildGeometry('cube');
+    var verts = geo.verts;
+    var edgeIndices = geo.edges;
 
     var wireVertBuf = gl.createBuffer();
     gl.bindBuffer(gl.ARRAY_BUFFER, wireVertBuf);
